@@ -6,7 +6,7 @@ public class PopulationManager : MonoBehaviour
 {
     [SerializeField] private GameObject _botPrefab;
     [SerializeField] private int _populationSize = 50;
-    [SerializeField] private float _trialTime = 5f;
+    [SerializeField] private float _trialTime = 8f;
 
     private List<GameObject> _population = new List<GameObject>();
 
@@ -73,7 +73,7 @@ public class PopulationManager : MonoBehaviour
 
     private void BreedNewPopulation()
     {
-        List<GameObject> sortedPopulation = _population.OrderBy(p => p.GetComponent<Brain>().TimeAlive).ToList();
+        List<GameObject> sortedPopulation = _population.OrderBy(p => p.GetComponent<Brain>().DistanceTraveled).ToList();
 
         _population.Clear();
 

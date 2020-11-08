@@ -6,9 +6,11 @@ public class Brain : MonoBehaviour
 {
     public int DNALength { get; set; } = 1;
     public float TimeAlive { get; set; }
+    public float DistanceTraveled { get; set; }
     public DNA DNA { get; set; }
 
     private ThirdPersonCharacter _character;
+    private Vector3 _startPosition;
     private Vector3 _move;
     private bool _jump;
     private bool _alive = true;
@@ -26,6 +28,7 @@ public class Brain : MonoBehaviour
         TimeAlive = 0;
         DNA = new DNA(DNALength, 6);
         _character = GetComponent<ThirdPersonCharacter>();
+        _startPosition = transform.position;
         _alive = true;
     }
 
@@ -59,6 +62,7 @@ public class Brain : MonoBehaviour
         if (_alive)
         {
             TimeAlive += Time.deltaTime;
+            DistanceTraveled = Vector3.Distance(transform.position, _startPosition);
         }
     }
 }
