@@ -4,7 +4,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 [RequireComponent(typeof(ThirdPersonCharacter))]
 public class Brain : MonoBehaviour
 {
-    public int DNALength { get; set; }
+    public int DNALength { get; set; } = 1;
     public float TimeAlive { get; set; }
     public DNA DNA { get; set; }
 
@@ -31,7 +31,7 @@ public class Brain : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "dead")
+        if (collision.gameObject.CompareTag("dead"))
         {
             _alive = false;
         }

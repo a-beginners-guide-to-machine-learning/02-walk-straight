@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class DNA : MonoBehaviour
+public class DNA
 {
     private List<int> _genes = new List<int>();
     private int _dnaLength = 0;
